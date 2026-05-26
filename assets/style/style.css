@@ -213,6 +213,30 @@ body {
 
 }
 
+.adn {
+    padding-left: 60px;
+}
+
+.sensor-card{
+    width: 18rem;
+    margin: 30px;
+}
+
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+}
+
+.btn-area{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.botao{
+    width: 50%;
+}
+
 
 
 
