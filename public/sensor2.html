@@ -1,82 +1,95 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensores</title>
+    <title>Visualização de Sensores - Red Rush</title>
+    <meta name="description" content="Visualize os sensores em tempo real">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../assets/style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 </head>
-
 <body>
     <header>
-
+        <nav class="nave" aria-label="Navegação principal">
+            <img class="logo" src="../assets/imag/Logo_red_rush.png" alt="Red Rush Logo">
+            <h1 id="hs">Red Rush</h1>
+            <span id="burguer" class="material-icons" role="button" aria-label="Menu" tabindex="0">menu</span>
+        </nav>
+        <nav class="navs" aria-label="Navegação secundária">
+            <a id="lk" href="home.html">Início</a>
+            <a id="lk" href="sensor.html">Adicionar Sensores</a>
+            <a id="lk" href="cadastro2.html">Usuários</a>
+            <a id="lk" href="login.html">Sair</a>
+        </nav>
     </header>
 
     <main>
         <div class="flex">
-            <div class="dash">
+            <aside class="dash" aria-label="Painel de controle">
                 <div class="coisa">
                     <div class="bmv">
-                        <h3>Bem vindo ADM </h3>
-                        <img id="icon" src="../assets/imag/person2.webp" alt="Person">
+                        <h3>Bem vindo ADM</h3>
+                        <img id="icon" src="../assets/imag/person2.webp" alt="Avatar do administrador">
                     </div>
-
-                    <div class="board">
-                        <div class="dsh5">
-                            <ol>Dashboard 1</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 2</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 3</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 4</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 5</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 6</ol>
-                        </div>
-                    </div>
+                    <nav class="board" aria-label="Menu do dashboard">
+                        <div class="dsh"><a href="sensor.html">Dashboard 1</a></div>
+                        <div class="dsh"><a href="sensor2.html">Dashboard 2</a></div>
+                        <div class="dsh"><a href="#">Dashboard 3</a></div>
+                        <div class="dsh"><a href="#">Dashboard 4</a></div>
+                        <div class="dsh5"><a href="#">Dashboard 5</a></div>
+                        <div class="dsh"><a href="#">Dashboard 6</a></div>
+                    </nav>
                 </div>
-            </div>
+            </aside>
             
-            <div class="adn">
-                 <div class="senso">
-                    <h1>visualização de Sensores</h1> <br>
-                    <h4>Velocidade</h4>
+            <section class="adn" aria-label="Visualização de sensores">
+                <div class="senso">
+                    <h1>Visualização de Sensores</h1>
+                    <h4>Monitoramento em tempo real</h4>
                 </div>
-                <br>
 
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/imag/sensor_velocidade_hall.png" class="card-img-top" alt="Sensor Hall">
-                    <div class="card-body">
-                        <p class="card-text">Sensor de velocidade hall</p>
+                <div class="sensor-grid">
+                    <div class="card sensor-card">
+                        <img src="../assets/imag/trem.png" class="card-img-top" alt="Sensor de velocidade">
+                        <div class="card-body">
+                            <h5 class="card-title">Sensor de Velocidade Hall</h5>
+                            <p class="card-text">Velocidade atual: <strong>45 km/h</strong></p>
+                            <p class="card-text">Status: <span class="badge bg-success">Ativo</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="card sensor-card">
+                        <img src="../assets/imag/person.png" class="card-img-top" alt="Sensor de localização">
+                        <div class="card-body">
+                            <h5 class="card-title">Sensor de Localização GPS</h5>
+                            <p class="card-text">Posição: <strong>Trilho A - Estação Central</strong></p>
+                            <p class="card-text">Status: <span class="badge bg-success">Ativo</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="card sensor-card">
+                        <img src="../assets/imag/Logo_red_rush.png" class="card-img-top" alt="Sensor de energia">
+                        <div class="card-body">
+                            <h5 class="card-title">Sensor de Energia</h5>
+                            <p class="card-text">Nível: <strong>78%</strong></p>
+                            <p class="card-text">Status: <span class="badge bg-warning">Em manutenção</span></p>
+                        </div>
                     </div>
                 </div>
-                <br>
 
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button">Freios</button>
-                    
+                <div class="btn-area">
+                    <button class="btn btn-primary botao" type="button" id="emergencyBtn">Freios de Emergência</button>
                 </div>
-            </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-
+        <p>&copy; 2026 Red Rush. Todos os direitos reservados.</p>
     </footer>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script/script.js"></script>
+</body>
 </html>

@@ -1,81 +1,89 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensores</title>
+    <title>Sensores - Red Rush</title>
+    <meta name="description" content="Gerenciamento de sensores Red Rush">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../assets/style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 </head>
-
 <body>
     <header>
-
+        <nav class="nave" aria-label="Navegação principal">
+            <img class="logo" src="../assets/imag/Logo_red_rush.png" alt="Red Rush Logo">
+            <h1 id="hs">Red Rush</h1>
+            <span id="burguer" class="material-icons" role="button" aria-label="Menu" tabindex="0">menu</span>
+        </nav>
+        <nav class="navs" aria-label="Navegação secundária">
+            <a id="lk" href="home.html">Início</a>
+            <a id="lk" href="sensor2.html">Visualizar Sensores</a>
+            <a id="lk" href="cadastro2.html">Usuários</a>
+            <a id="lk" href="login.html">Sair</a>
+        </nav>
     </header>
 
     <main>
         <div class="flex">
-            <div class="dash">
+            <aside class="dash" aria-label="Painel de controle">
                 <div class="coisa">
                     <div class="bmv">
-                        <h3>Bem vindo ADM </h3>
-                        <img id="icon" src="../assets/imag/person2.webp" alt="Person">
+                        <h3>Bem vindo ADM</h3>
+                        <img id="icon" src="../assets/imag/person2.webp" alt="Avatar do administrador">
                     </div>
-
-                    <div class="board">
-                        <div class="dsh">
-                            <ol>Dashboard 1</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 2</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 3</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 4</ol>
-                        </div>
-
-                        <div class="dsh5">
-                            <ol>Dashboard 5</ol>
-                        </div>
-
-                        <div class="dsh">
-                            <ol>Dashboard 6</ol>
-                        </div>
-                    </div>
+                    <nav class="board" aria-label="Menu do dashboard">
+                        <div class="dsh"><a href="sensor.html">Dashboard 1</a></div>
+                        <div class="dsh"><a href="sensor2.html">Dashboard 2</a></div>
+                        <div class="dsh"><a href="#">Dashboard 3</a></div>
+                        <div class="dsh"><a href="#">Dashboard 4</a></div>
+                        <div class="dsh5"><a href="#">Dashboard 5</a></div>
+                        <div class="dsh"><a href="#">Dashboard 6</a></div>
+                    </nav>
                 </div>
-            </div>
-            <div class="adn">
+            </aside>
+            
+            <section class="adn" aria-label="Adicionar sensores">
                 <div class="senso">
                     <h1>Adicionar sensores</h1>
                 </div>
 
                 <div class="adicionar">
                     <h3 class="h">Adicionar novos sensores</h3>
-                    <form id="form">
-                        Nome do sensor: <br>
-                        <input type="text" id="nome"> <br>
-                        Tipos de sensores: <br>
-                        <select class="sec" name="Tipos de sensor" id="sel">
-                            <option value="0">Selecione</option>
-                            <option value="1">Velocidade</option>
-                            <option value="2">Localização</option>
-                            <option value="3">Energia</option>
-                        </select>
+                    <form id="sensorForm" novalidate>
+                        <div class="form-group">
+                            <label for="nome">Nome do sensor:</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Ex: Sensor Velocidade 1" aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sel">Tipo de sensor:</label>
+                            <select class="sec" name="tipo_sensor" id="sel" required aria-required="true">
+                                <option value="">Selecione</option>
+                                <option value="velocidade">Velocidade</option>
+                                <option value="localizacao">Localização</option>
+                                <option value="energia">Energia</option>
+                                <option value="temperatura">Temperatura</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="local">Localização:</label>
+                            <input type="text" id="local" name="local" placeholder="Ex: Trilho A, Estação Central">
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Adicionar Sensor</button>
                     </form>
                 </div>
-            </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-
+        <p>&copy; 2026 Red Rush. Todos os direitos reservados.</p>
     </footer>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script/script.js"></script>
+</body>
 </html>

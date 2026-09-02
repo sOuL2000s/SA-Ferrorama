@@ -1,257 +1,710 @@
+/* ========================================
+   Red Rush - Main Stylesheet
+   Versão 2.0 - Otimizado e Organizado
+   ======================================== */
 
-/*Marcos*/
-main{
-    background-color: #fff8ef;
+/* ========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.bodi{
+
+body {
     background-color: #fff8ef;
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-.nave{
+
+main {
+    background-color: #fff8ef;
+    flex: 1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ========================================
+   NAVEGAÇÃO PRINCIPAL
+   ======================================== */
+.nave {
     display: flex;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     padding: 20px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: larger;
     background-color: #fff8ef;
-    margin-right: 90px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
-#hs{
-    color:#920404;
+
+.nave h1 {
+    color: #920404;
+    margin: 0;
 }
+
 .logo {
     width: 150px;
+    height: auto;
 }
+
+#gif {
+    width: 150px;
+    border-radius: 50px;
+    opacity: 0.7;
+}
+
+#burguer {
+    cursor: pointer;
+    font-size: 2rem;
+    color: #920404;
+}
+
+/* ========================================
+   NAVEGAÇÃO SECUNDÁRIA
+   ======================================== */
+.navs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border: solid 1px #b47474;
+    background-color: #b47474;
+    padding: 10px 20px;
+}
+
+#lk {
+    color: black;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#lk:hover {
+    background-color: #920404;
+    color: #fff8ef;
+}
+
+/* ========================================
+   PÁGINA HOME
+   ======================================== */
+.bem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+.trem {
+    width: 400px;
+    max-width: 90%;
+    height: auto;
+}
+
+#bvd {
+    font-size: 4rem;
+    border: solid 1px #920404;
+    background-color: #920404;
+    border-radius: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff8ef;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+/* ========================================
+   FEATURES CARDS
+   ======================================== */
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #f5ede4;
+}
+
+.feature-card {
+    background: #fff8ef;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.feature-card .material-icons {
+    font-size: 3rem;
+    color: #920404;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #920404;
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   PÁGINAS DE LOGIN E CADASTRO
+   ======================================== */
+.bodi {
+    background-color: #fff8ef;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
-    background-color: #fff8ef;
-    height: 500px;
-    
-}
-#bot{
-    margin-left: 0px;
-    border-radius: 15px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-top: 5px;  
-    padding-bottom: 5px;
-    background-color: #b94040;
-    border-color: #b94040;
-    font-size: 30px;
-}
-#log {
-    margin-left: 40px;
-    font-size: 50px;
-}
-.formss {
-    border: solid 2px #b47474;
-    border-radius: 10px;
-    padding: 50px;
-    padding-left: 200px;
-    padding-right: 200px;
-    padding-top: 50px;
-    padding-bottom: 70px;
-    background-color: #b47474;
-}
-#links{
-    color: black;
-}
-#back {
-    font-size: 30px;
+    min-height: 80vh;
+    padding: 20px;
 }
 
-.ck {
-    font-size: 20px;
-}
-#gif {
-    width: 150px;
-    border-radius: 50px;
-    opacity:0.7;
-}
-/*Home Marcos*/
-.material-icons{
-    cursor: pointer;
-    
-}
-.navs {
-    justify-content: space-around;
-    display: flex;
-    border: solid 1px #b47474;
-    background-color: #b47474;
-    color: black;
-    padding: 10px;
-}
-#lk {
-    text-decoration: none;
-    color: black;
-}
-body {
-    background-color: #fff8ef;
-    gap: 0%;
-    margin: 0%;
-}
-.trem {
-    width: 500px;
-    margin-top: 340px;
-}
-.bem {
-    display:flex;
-    text-align: center;
-    align-items: center;
-}
-#bvd {
-    margin-left: 13%;
-    font-size: 100px;
-    border: solid 1px #920404;
-    background-color: #920404;
-    border-radius: 25px;
-    font-family: 'Times New Roman', Times, serif;
-    color:#fff8ef;
-}
-/*sensores Marcos*/
-.dash {
-    font-size: 25px;
-    background-color: #b47474;
-    border-radius: 20px;
-    padding-bottom: 765px;
-    padding-right: 90px;
-    
-}
-#icon {
-    width: 40px;
-    height: 40px;
-    margin-left: 165px;
-}
-.bmv{
-    background-color: #fff8ef;
-    border-radius: 5px;
-    margin: 10px;
-}
-.flex {
-    display: flex;
-}
-.dsh {
-    background-color: #fff8ef;
-    border-radius: 50px;
-}
-.dsh5 {
-    background-color:#ec8888 ;
-    border-radius: 50px;
-}
-.senso{
-    margin-left: 500px;
-    font-size: 30px;
-    margin-top: 50px;
-}
-
-
-.adn {
-    text-align: center;
-
-}
-#nome {
-    height: 30px;
-    border-radius: 5px;
-    width: 150px;
-}
-.adicionar {
-    font-size: 20px;
-    background-color:#b47474 ;
-    margin-left: 500px;
-    padding: 100px;
-    border-radius: 25px;
-    margin-top: 100px;
-    
-}
-.form-select {
-    width: 50px;
-}
-.sec {
-    width: 150px;
-    border-radius: 5px;
-}
-.h {
-    color: white;
-    margin-bottom: 20px;
-}
-.coisa {
-    margin-left: 70px;
-    margin-top: 50px;
-}
-.p {
-    font-size: 25px;
-}
-
-
-
-
-
-
-/*Ramon*/
-
-/* CSS reutilizado de marcos*/
-
+.formss,
 .formsss {
     border: solid 2px #b47474;
     border-radius: 10px;
-    padding: 50px;
-    padding-left: 200px;
-    padding-right: 200px;
-    padding-top: 50px;
-    padding-bottom: 70px;
+    padding: 50px 40px;
     background-color: #b47474;
-    
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+#log {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #fff8ef;
+    margin-bottom: 30px;
+}
 
-.config {
-    margin-left: 30px;
+.form-group {
+    margin-bottom: 20px;
+}
 
+#back {
+    font-size: 1.2rem;
+    color: #fff8ef;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff8ef;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(146, 4, 4, 0.3);
+}
+
+.form-group input.invalid {
+    border: 2px solid #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+    display: none;
+    margin-top: 5px;
+}
+
+.invalid-feedback.show {
+    display: block;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.ck {
+    color: #fff8ef;
+    font-size: 1rem;
+}
+
+#chk {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+#bot {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: #920404;
+    border: none;
+    color: #fff8ef;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#bot:hover {
+    background-color: #6d0303;
+    transform: scale(1.02);
+}
+
+#bot:active {
+    transform: scale(0.98);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff8ef;
+}
+
+.register-link a {
+    color: #920404;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.register-link a:hover {
+    color: #6d0303;
+}
+
+/* ========================================
+   PÁGINAS DE SENSORES (DASHBOARD)
+   ======================================== */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.dash {
+    background-color: #b47474;
+    border-radius: 20px;
+    padding: 20px;
+    min-width: 220px;
+    flex: 1;
+    max-width: 300px;
+}
+
+.coisa {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bmv {
+    background-color: #fff8ef;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+}
+
+.bmv h3 {
+    color: #920404;
+    margin-bottom: 10px;
+}
+
+#icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dsh,
+.dsh5 {
+    background-color: #fff8ef;
+    border-radius: 50px;
+    padding: 10px 20px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.dsh:hover {
+    background-color: #920404;
+    color: #fff8ef;
+}
+
+.dsh5 {
+    background-color: #ec8888;
+    font-weight: bold;
+}
+
+.dsh5:hover {
+    background-color: #920404;
+    color: #fff8ef;
 }
 
 .adn {
-    padding-left: 60px;
+    flex: 3;
+    padding: 20px;
+    min-width: 300px;
 }
 
-.sensor-card{
+.senso {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.senso h1 {
+    color: #920404;
+    font-size: 2rem;
+}
+
+.senso h4 {
+    color: #666;
+}
+
+/* ========================================
+   FORMULÁRIO DE ADIÇÃO DE SENSORES
+   ======================================== */
+.adicionar {
+    background-color: #b47474;
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.h {
+    color: #fff8ef;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.adicionar .form-group {
+    margin-bottom: 20px;
+}
+
+.adicionar label {
+    color: #fff8ef;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.adicionar input,
+.adicionar select {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff8ef;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #920404;
+    color: #fff8ef;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #6d0303;
+    transform: scale(1.02);
+}
+
+/* ========================================
+   SENSOR CARDS (sensor2.html)
+   ======================================== */
+.sensor-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.sensor-card {
     width: 18rem;
-    margin: 30px;
+    margin: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card-img-top{
+.sensor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
     height: 200px;
     object-fit: cover;
 }
 
-.btn-area{
+.btn-area {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
-.botao{
+.botao {
     width: 50%;
+    min-width: 200px;
+    padding: 15px;
+    font-size: 1.2rem;
 }
 
+/* ========================================
+   PÁGINA DE USUÁRIOS (cadastro2.html)
+   ======================================== */
+.user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 30px 0;
+    padding: 0 20px;
+}
 
+.user-list-header h2 {
+    color: #920404;
+}
 
+.search-bar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 
+.search-bar .form-control {
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid #b47474;
+    padding: 8px 15px;
+}
 
+.lista1 {
+    padding: 0 20px;
+}
 
+.list-group-item {
+    transition: background-color 0.3s;
+}
 
+.list-group-item:hover {
+    background-color: #f5ede4;
+}
 
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+    background-color: #b47474;
+    color: #fff8ef;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
 
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+@media (max-width: 768px) {
+    .nave {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    .nave h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo {
+        width: 100px;
+    }
+    
+    #gif {
+        width: 100px;
+    }
+    
+    .navs {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .bem {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #bvd {
+        font-size: 2.5rem;
+        padding: 15px 30px;
+    }
+    
+    .trem {
+        width: 80%;
+    }
+    
+    .formss,
+    .formsss {
+        padding: 30px 20px;
+    }
+    
+    #log {
+        font-size: 2rem;
+    }
+    
+    .flex {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .dash {
+        max-width: 100%;
+        padding: 15px;
+    }
+    
+    .adn {
+        padding: 10px;
+        min-width: unset;
+    }
+    
+    .adicionar {
+        padding: 25px 20px;
+    }
+    
+    .senso h1 {
+        font-size: 1.5rem;
+    }
+    
+    .sensor-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .botao {
+        width: 100%;
+    }
+    
+    .user-list-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+    }
+    
+    .search-bar .form-control {
+        width: 100%;
+    }
+    
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
 
+@media (max-width: 480px) {
+    #bvd {
+        font-size: 2rem;
+        padding: 10px 20px;
+    }
+    
+    .logo {
+        width: 80px;
+    }
+    
+    #gif {
+        width: 80px;
+    }
+    
+    .nave {
+        font-size: 1rem;
+    }
+    
+    .formss,
+    .formsss {
+        padding: 20px 15px;
+    }
+    
+    #bot {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+}
 
+/* ========================================
+   UTILITÁRIOS E ACESSIBILIDADE
+   ======================================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
+[role="button"] {
+    cursor: pointer;
+}
 
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
 
-
-
-
-/*Davi*/
+/* ========================================
+   FIM DO STYLESHEET
+   ======================================== */
