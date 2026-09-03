@@ -1,5 +1,18 @@
-# SA-Ferrorama
-Projeto SA do ferrorama
-Esse é um sistema que monitora os trens atraves de sensores. Os sensores capturam informações como velocidade,localização e horario de partida 
-Nosso objtivo com esse projeto é criar um aplicativo para que as pessoas possam monitorar o trem usando o celular sem dificuldade. 
-OS integrantes são: Marcos, responsavel por criar a tela de login e a pagina home, Ramon responsavel por criar o mockup e o dashbord, Davi Rosa responsavel por criar o README e rebeca, resposavel pelo crood. 
+ INFORMAÇÕES FERRORAMA
+ 
+ - objetivo do sistema
+    Monitorar informações de trens como velocidade, rota, carga máxima de passageiros e horários em tempo real.
+
+ - tecnologias utilizadas
+    para organização utilizamos kanban e GTD, temos o objetivo de organizar o projeto e alinhar nossas prioridades e idéias.
+
+ - integrantes da equipe
+    Davi Rosa
+    Marcos Paulo
+    Ramon Trindade
+    Rebeca Sarrea
+
+ - forma de execução
+    Dividimos as tarefas por integrante e definimos um tempo limite para conclusão.
+
+ - demais informações necessárias para compreender o projeto;
