@@ -1,18 +1,23 @@
  INFORMAÇÕES FERRORAMA
  
- - objetivo do sistema
-    Monitorar informações de trens como velocidade, rota, carga máxima de passageiros e horários em tempo real.
+ - Objetivo do sistema
+    O sistema tem como objetivo monitorar informações de trens como velocidade, rota, carga máxima de passageiros e horários em tempo real através de sensores.
 
- - tecnologias utilizadas
-    para organização utilizamos kanban e GTD, temos o objetivo de organizar o projeto e alinhar nossas prioridades e idéias.
+ - Tecnologias utilizadas
 
- - integrantes da equipe
-    Davi Rosa
-    Marcos Paulo
-    Ramon Trindade
-    Rebeca Sarrea
+    - Frontend: HTML, CSS, JS
+    - Backend (planejado): PHP com XAMPP
+    - Banco de Dados(planejado): MySQL
 
- - forma de execução
+ - Integrantes da equipe e responsabilidades
+    
+    Davi Rosa       -  Tela de login, página home, dashboard
+    Marcos Paulo    -  CRUD, banco de dados
+    Ramon Trindade  -  Mockup, dashboard, tela de freios e horários dos trens,
+    Rebeca Sarrea   -  README, documentação , design 
+
+ - Forma de execução
+   
     Dividimos as tarefas por integrante e definimos um tempo limite para conclusão.
 
- - demais informações necessárias para compreender o projeto;
+ - Funcionalidades
