@@ -1,7 +1,7 @@
 /**
  * ========================================
  * Red Rush - Main JavaScript
- * Versão 2.0 - Otimizado e Funcional
+ * Versão 2.1 - Hamburger Menu Fix
  * ========================================
  */
 
@@ -16,6 +16,7 @@
         initForms();
         initSearch();
         initEmergencyButton();
+        initFadeIn();
     });
 
     // ========================================
@@ -26,42 +27,59 @@
         const navs = document.querySelector('.navs');
 
         if (burguer && navs) {
+            // Click event
             burguer.addEventListener('click', function(e) {
                 e.stopPropagation();
-                toggleMenu(navs);
+                toggleMenu(navs, burguer);
             });
 
+            // Keyboard support (Enter/Space)
             burguer.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    toggleMenu(navs);
+                    toggleMenu(navs, burguer);
                 }
             });
 
-            // Fecha menu ao clicar fora
+            // Close menu when clicking outside
             document.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768 && 
+                    navs.classList.contains('open') &&
                     !navs.contains(e.target) && 
                     !burguer.contains(e.target)) {
-                    navs.classList.remove('open');
-                    burguer.textContent = 'menu';
+                    closeMenu(navs, burguer);
                 }
             });
 
-            // Fecha menu em resize
+            // Close menu on window resize to desktop
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 768 && navs.classList.contains('open')) {
-                    navs.classList.remove('open');
-                    burguer.textContent = 'menu';
+                    closeMenu(navs, burguer);
+                }
+            });
+
+            // Close menu on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && navs.classList.contains('open')) {
+                    closeMenu(navs, burguer);
                 }
             });
         }
     }
 
-    function toggleMenu(navs) {
-        const burguer = document.getElementById('burguer');
+    function toggleMenu(navs, burguer) {
         navs.classList.toggle('open');
         burguer.textContent = navs.classList.contains('open') ? 'close' : 'menu';
+        
+        // Update aria-expanded for accessibility
+        const isOpen = navs.classList.contains('open');
+        burguer.setAttribute('aria-expanded', isOpen);
+    }
+
+    function closeMenu(navs, burguer) {
+        navs.classList.remove('open');
+        burguer.textContent = 'menu';
+        burguer.setAttribute('aria-expanded', 'false');
     }
 
     // ========================================
@@ -74,9 +92,10 @@
             loginForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 if (validateLoginForm(this)) {
-                    alert('Login realizado com sucesso!');
-                    // Redirecionar para home
-                    window.location.href = 'home.html';
+                    showSuccessMessage('Login realizado com sucesso!');
+                    setTimeout(function() {
+                        window.location.href = 'home.html';
+                    }, 1500);
                 }
             });
         }
@@ -87,9 +106,10 @@
             registerForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 if (validateRegisterForm(this)) {
-                    alert('Cadastro realizado com sucesso!');
-                    // Redirecionar para login
-                    window.location.href = 'login.html';
+                    showSuccessMessage('Cadastro realizado com sucesso!');
+                    setTimeout(function() {
+                        window.location.href = 'login.html';
+                    }, 1500);
                 }
             });
         }
@@ -100,8 +120,15 @@
             sensorForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 if (validateSensorForm(this)) {
-                    alert('Sensor adicionado com sucesso!');
+                    showSuccessMessage('Sensor adicionado com sucesso!');
                     this.reset();
+                    // Clear any error states
+                    this.querySelectorAll('.invalid').forEach(el => {
+                        el.classList.remove('invalid');
+                    });
+                    this.querySelectorAll('.invalid-feedback.show').forEach(el => {
+                        el.classList.remove('show');
+                    });
                 }
             });
         }
@@ -146,7 +173,7 @@
 
         // Validate fullname
         if (!fullname.value || fullname.value.trim().length < 3) {
-            showError(fullname, 'Por favor, insira seu nome completo.');
+            showError(fullname, 'Por favor, insira seu nome completo (mínimo 3 caracteres).');
             isValid = false;
         } else {
             clearError(fullname);
@@ -176,9 +203,10 @@
             clearError(email);
         }
 
-        // Validate phone
-        if (!phone.value || phone.value.trim().length < 10) {
-            showError(phone, 'Por favor, insira um número de telefone válido.');
+        // Validate phone (at least 10 digits)
+        const phoneClean = phone.value.replace(/\D/g, '');
+        if (!phone.value || phoneClean.length < 10) {
+            showError(phone, 'Por favor, insira um número de telefone válido (mínimo 10 dígitos).');
             isValid = false;
         } else {
             clearError(phone);
@@ -206,11 +234,10 @@
     function validateSensorForm(form) {
         const nome = form.querySelector('#nome');
         const tipo = form.querySelector('#sel');
-        const local = form.querySelector('#local');
         let isValid = true;
 
         if (!nome.value || nome.value.trim().length < 2) {
-            showError(nome, 'Por favor, insira um nome para o sensor.');
+            showError(nome, 'Por favor, insira um nome para o sensor (mínimo 2 caracteres).');
             isValid = false;
         } else {
             clearError(nome);
@@ -251,6 +278,38 @@
         }
     }
 
+    function showSuccessMessage(message) {
+        // Create a custom success alert
+        const alertDiv = document.createElement('div');
+        alertDiv.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            z-index: 9999;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            animation: slideDown 0.5s ease-out;
+        `;
+        alertDiv.textContent = '✅ ' + message;
+        document.body.appendChild(alertDiv);
+
+        // Remove after 3 seconds
+        setTimeout(function() {
+            alertDiv.style.opacity = '0';
+            alertDiv.style.transition = 'opacity 0.5s';
+            setTimeout(function() {
+                if (alertDiv.parentNode) {
+                    alertDiv.parentNode.removeChild(alertDiv);
+                }
+            }, 500);
+        }, 3000);
+    }
+
     // ========================================
     // BUSCA DE USUÁRIOS
     // ========================================
@@ -261,14 +320,37 @@
 
         function filterUsers(query) {
             const searchTerm = query.toLowerCase().trim();
+            let foundCount = 0;
+            
             listItems.forEach(item => {
                 const text = item.textContent.toLowerCase();
                 if (searchTerm === '' || text.includes(searchTerm)) {
                     item.style.display = '';
+                    foundCount++;
                 } else {
                     item.style.display = 'none';
                 }
             });
+
+            // Show/hide "no results" message
+            const noResults = document.getElementById('noResults');
+            if (searchTerm !== '' && foundCount === 0) {
+                if (!noResults) {
+                    const msg = document.createElement('p');
+                    msg.id = 'noResults';
+                    msg.style.cssText = 'text-align: center; padding: 20px; color: #666; font-size: 1.2rem;';
+                    msg.textContent = '🔍 Nenhum usuário encontrado para "' + searchTerm + '"';
+                    const container = document.querySelector('.lista1');
+                    if (container) {
+                        container.appendChild(msg);
+                    }
+                } else {
+                    noResults.textContent = '🔍 Nenhum usuário encontrado para "' + searchTerm + '"';
+                    noResults.style.display = 'block';
+                }
+            } else if (noResults) {
+                noResults.style.display = 'none';
+            }
         }
 
         if (searchInput) {
@@ -300,16 +382,27 @@
         const emergencyBtn = document.getElementById('emergencyBtn');
         if (emergencyBtn) {
             emergencyBtn.addEventListener('click', function() {
-                if (confirm('ATENÇÃO: Isso acionará os freios de emergência. Continuar?')) {
+                if (confirm('⚠️ ATENÇÃO: Isso acionará os freios de emergência. Continuar?')) {
                     this.textContent = '⚠️ FREIOS ACIONADOS!';
                     this.classList.remove('btn-primary');
                     this.classList.add('btn-danger');
                     this.disabled = true;
                     
-                    // Simula um alerta
+                    // Visual feedback - flash red
+                    this.style.transition = 'background-color 0.3s';
+                    this.style.backgroundColor = '#dc3545';
+                    
+                    // Show success message
+                    showSuccessMessage('🚨 Freios de emergência acionados com sucesso!');
+                    
+                    // Reset after 5 seconds (optional)
                     setTimeout(() => {
-                        alert('🚨 Freios de emergência acionados com sucesso!');
-                    }, 500);
+                        this.textContent = 'Freios de Emergência';
+                        this.classList.remove('btn-danger');
+                        this.classList.add('btn-primary');
+                        this.disabled = false;
+                        this.style.backgroundColor = '';
+                    }, 5000);
                 }
             });
         }
@@ -318,7 +411,6 @@
     // ========================================
     // ANIMAÇÕES DE ENTRADA
     // ========================================
-    // Adiciona classe fade-in a elementos ao entrar na viewport
     function initFadeIn() {
         const elements = document.querySelectorAll('.feature-card, .sensor-card');
         if (elements.length) {
@@ -335,13 +427,12 @@
         }
     }
 
-    // Inicia fade-in com pequeno delay para garantir que o DOM esteja pronto
-    setTimeout(initFadeIn, 100);
-
     // ========================================
     // CONSOLE LOG - INFORMATIVO
     // ========================================
-    console.log('%c Red Rush v2.0 ', 'background: #920404; color: #fff8ef; font-size: 20px; padding: 10px; border-radius: 5px;');
+    console.log('%c Red Rush v2.1 ', 'background: #920404; color: #fff8ef; font-size: 20px; padding: 10px; border-radius: 5px;');
     console.log('🚂 Sistema de monitoramento de trens carregado com sucesso!');
+    console.log('📱 Menu hamburguer funcional');
+    console.log('✅ Validações de formulário ativas');
 
 })();

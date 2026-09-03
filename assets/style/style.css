@@ -1,6 +1,6 @@
 /* ========================================
    Red Rush - Main Stylesheet
-   Versão 2.0 - Otimizado e Organizado
+   Versão 2.1 - Hamburger Menu Fix
    ======================================== */
 
 /* ========================================
@@ -65,6 +65,7 @@ a {
     cursor: pointer;
     font-size: 2rem;
     color: #920404;
+    user-select: none;
 }
 
 /* ========================================
@@ -78,6 +79,7 @@ a {
     border: solid 1px #b47474;
     background-color: #b47474;
     padding: 10px 20px;
+    transition: all 0.3s ease;
 }
 
 #lk {
@@ -90,6 +92,34 @@ a {
 #lk:hover {
     background-color: #920404;
     color: #fff8ef;
+}
+
+/* ========================================
+   MENU HAMBURGUER - MOBILE
+   ======================================== */
+/* Esconder o menu hamburguer em desktop */
+#burguer {
+    display: none;
+}
+
+/* Mostrar hamburguer e esconder menu em mobile */
+@media (max-width: 768px) {
+    #burguer {
+        display: block;
+    }
+    
+    .navs {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+        width: 100%;
+    }
+    
+    .navs.open {
+        display: flex;
+    }
 }
 
 /* ========================================
@@ -484,6 +514,23 @@ a {
     font-size: 1.2rem;
 }
 
+/* Emergency button states */
+.botao.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.botao.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.botao:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
 /* ========================================
    PÁGINA DE USUÁRIOS (cadastro2.html)
    ======================================== */
@@ -565,6 +612,11 @@ footer {
         align-items: center;
         gap: 10px;
         padding: 15px;
+        display: none;
+    }
+    
+    .navs.open {
+        display: flex;
     }
     
     .bem {
