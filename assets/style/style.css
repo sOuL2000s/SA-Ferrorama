@@ -760,3 +760,41 @@ footer {
 /* ========================================
    FIM DO STYLESHEET
    ======================================== */
+
+/* ========================================
+   CLICKABLE LOGO AND TITLE
+   ======================================== */
+.logo-link,
+.title-link {
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo-link:hover,
+.title-link:hover {
+    transform: scale(1.02);
+    opacity: 0.85;
+}
+
+.logo-link:active,
+.title-link:active {
+    transform: scale(0.98);
+}
+
+/* Make sure the title link doesn't change color on hover/visit */
+.title-link,
+.title-link:visited,
+.title-link:hover,
+.title-link:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Adjust for mobile */
+@media (max-width: 768px) {
+    .logo-link:hover,
+    .title-link:hover {
+        transform: scale(1.01);
+    }
+}
